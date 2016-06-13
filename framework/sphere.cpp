@@ -2,7 +2,7 @@
 #include <cmath>
 
 
-Sphere::Sphere() : center {0.0,0.0,0.0}, rad {0.0}{}
+Sphere::Sphere() : center {0.0f,0.0f,0.0f}, rad {0.0}{}
 Sphere::Sphere(glm::vec3 const& center, double rad) :
  center{center_}, rad{rad_}{}
 
@@ -24,10 +24,9 @@ Sphere::Sphere(glm::vec3 const& center, double rad) :
  }
 
  void Sphere::set_center(glm::vec3 const& center) {
- 	center = center_;
+ 	center_ =center;
  }
 
  void Sphere::set_rad(double rad){
- 	rad = rad_;
+ 	rad_ = rad;
  }
- 
