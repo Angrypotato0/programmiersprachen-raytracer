@@ -2,9 +2,11 @@
 #include <cmath>
 
 
-Sphere::Sphere() :Shape{}, center_ {0.0f,0.0f,0.0f}, rad_ {0.0}{}
+Sphere::Sphere() :Shape{"Sphere",{0.0f, 0.0f, 0.0f}}, center_ {0.0f,0.0f,0.0f}, rad_ {0.0}{}
 Sphere::Sphere(glm::vec3 const& center, float rad) :
- Shape{}, center_{center}, rad_{rad}{}
+ Shape{"Sphere",{0.0f, 0.0f, 0.0f}}, center_{center}, rad_{rad}{}
+Sphere::Sphere(std::string const& name, Color const& color, glm::vec3 const& center, float rad):
+ Shape{name,color}, center_{center}, rad_{rad}{}
 
 
  float Sphere::area () const {
@@ -31,6 +33,6 @@ Sphere::Sphere(glm::vec3 const& center, float rad) :
  	center_ = center;
  }
 
- void Sphere::set_rad(double rad){
+ void Sphere::set_rad(float const& rad){
  	rad_ = rad;
  }

@@ -53,6 +53,62 @@ TEST_CASE("Sphere: set_center", "[aufgabe5.2]") {
   REQUIRE(0.0f == s2.get_center().z);
 
 }
+TEST_CASE("Box: get_max", "[aufgabe5.2]") {
+  Box b1 {}; 
+  REQUIRE(0.0f == b1.get_max().x);
+  REQUIRE(0.0f == b1.get_max().y);
+  REQUIRE(0.0f == b1.get_max().z);
+
+  Box b2 {{0.4f, 2.3f, 1.2f}, {0.5f, 3.4f, 1.2f}};
+  REQUIRE(0.5f == b2.get_max().x);
+  REQUIRE(3.4f == b2.get_max().y);
+  REQUIRE(1.2f == b2.get_max().z);
+
+}
+
+TEST_CASE("Box: get_min", "[aufgabe5.2]") {
+  Box b1 {}; 
+  REQUIRE(0.0f == b1.get_min().x);
+  REQUIRE(0.0f == b1.get_min().y);
+  REQUIRE(0.0f == b1.get_min().z);
+
+  Box b2 {{0.4f, 2.3f, 1.2f}, {0.5f, 3.4f, 1.2f}};
+  REQUIRE(0.4f == b2.get_min().x);
+  REQUIRE(2.3f == b2.get_min().y);
+  REQUIRE(1.2f == b2.get_min().z);
+
+
+
+}
+TEST_CASE("Box: set_max)", "[aufgabe5.2]") {
+  Box b1 {};
+  b1.set_max({});  
+  REQUIRE(0.0f == b1.get_max().x);
+  REQUIRE(0.0f == b1.get_max().y);
+  REQUIRE(0.0f == b1.get_max().z);
+
+  Box b2 {{0.4f, 2.3f, 1.2f}, {0.5f, 3.4f, 1.2f}};
+  b2.set_max({0.7f, 0.9f, 1.0f});
+  REQUIRE(0.7f == b2.get_max().x);
+  REQUIRE(0.9f == b2.get_max().y);
+  REQUIRE(1.0f == b2.get_max().z);
+
+
+}
+TEST_CASE("Box: set_min", "[aufgabe5.2]") {
+  Box b1 {}; 
+  b1.set_min({});  
+  REQUIRE(0.0f == b1.get_min().x);
+  REQUIRE(0.0f == b1.get_min().y);
+  REQUIRE(0.0f == b1.get_min().z);
+
+  Box b2 {{0.4f, 2.3f, 1.2f}, {0.5f, 3.4f, 1.2f}};
+  b2.set_min({0.7f, 0.9f, 1.0f});
+  REQUIRE(0.7f == b2.get_min().x);
+  REQUIRE(0.9f == b2.get_min().y);
+  REQUIRE(1.0f == b2.get_min().z);
+
+}
 
 
 

@@ -1,9 +1,11 @@
 #include "box.hpp"
 #include <cmath>
 
-Box::Box() : Shape{}, min_ {0.0f,0.0f,0.0f}, max_ {0.0f,0.0f,0.0f} {}
+Box::Box() : Shape{"box",{0.0f, 0.0f, 0.0f}}, min_ {0.0f,0.0f,0.0f}, max_ {0.0f,0.0f,0.0f} {}
 Box::Box(glm::vec3 const& min, glm::vec3 const& max) :
-Shape{}, max_{max}, min_{min}{}
+Shape{"box",{0.0f, 0.0f, 0.0f}}, max_{max}, min_{min}{}
+Box::Box(std::string const& name, Color const& color, glm::vec3 const& min, glm::vec3 const& max) :
+Shape{name,color}, max_{max}, min_{min}{}
 
 	float Box::area() const {
 		glm::vec3 dif = max_-min_;
@@ -31,5 +33,10 @@ Shape{}, max_{max}, min_{min}{}
  	glm::vec3 const& Box::get_min() const{
  		return min_;
  	}
-
+ 	void Box::set_max(glm::vec3 const& max){
+ 		max_=max;
+ 	};
+	void Box::set_min(glm::vec3 const& min){
+ 		min_=min;
+ 	};
  	
