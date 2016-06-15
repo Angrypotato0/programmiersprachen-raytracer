@@ -1,22 +1,35 @@
 #include "box.hpp"
 #include <cmath>
 
-Box::Box() : max{0.0f,0.0f,0.0f}, min{}{0.0f,0.0f,0.0f} {}
-Box::Box() : max{max_}, min{min_}{}
+Box::Box() : Shape{}, min_ {0.0f,0.0f,0.0f}, max_ {0.0f,0.0f,0.0f} {}
+Box::Box(glm::vec3 const& min, glm::vec3 const& max) :
+Shape{}, max_{max}, min_{min}{}
 
-	float area() const override ;
- 	float volume() const override ;
+	float Box::area() const {
+		glm::vec3 dif = max_-min_;
+		float res = 2 * (dif.x * dif.y + dif.x * dif.z + dif.y * dif.z);
+		while(res<0){
+			res = res*(-1);
+		}
+		return res;
 
- 	glm::vec3 get_max() const{
- 		return max;
+	} 
+ 	float Box::volume() const {
+ 		glm::vec3 dif =max_-min_;
+ 		float res = dif.x * dif.y * dif.z;
+ 		while(res<0){
+			res = res*(-1);
+		}
+		return res;
+
+ 	} 
+
+ 
+ 	glm::vec3 const& Box::get_max() const{
+ 		return max_;
  	}
- 	glm::vec3 get_min() const{
- 		return min;
+ 	glm::vec3 const& Box::get_min() const{
+ 		return min_;
  	}
 
- 	void set_max(glm::vec3 const& max){
- 		max_ = max;
- 	}
- 	void set_min(glm::vec3 const& min){
- 		min_ = min;
- 	}
+ 	

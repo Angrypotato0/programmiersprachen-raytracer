@@ -1,4 +1,6 @@
-add_executable(tests 
+add_executable(tests
+box.cpp
+Sphere.cpp 
 main.cpp)
 
 target_link_libraries(tests

@@ -5,23 +5,20 @@
 
 
 
-class Sphere : class Shape 
+class Sphere : public Shape 
  {
  public:
  	Sphere();
- 	~Sphere(glm::vec3 const& center, double rad );
+ 	Sphere(glm::vec3 const& center, float rad );
 
- 	float area() const override ;
- 	float volume() const override ;
- 	glm::vec3 get_center() const;
- 	double get_rad() const;
+ 	float area() const  ;
+ 	float volume() const  ;
+ 	glm::vec3 const& get_center() const;
+ 	float get_rad() const;
  	void set_rad (double rad);
  	void set_center (glm::vec3 const& center);
  private:
  	glm::vec3 center_;
  	double rad_;
-
-
- 
- 	
- }; 
+};
+ #endif 
