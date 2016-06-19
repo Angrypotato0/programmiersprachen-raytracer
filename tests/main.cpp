@@ -265,6 +265,23 @@ TEST_CASE("Box + Sphere: print","[aufgabe5.5]"){
   Box b2 {"box 2", {1.0f, 0.3f, 0.5f}, {-1.0f, -4.3f, 5.6f}, {-9.0f, 1.5f, -2.2f}};
   std::cout << b2 <<  std::endl;
 
+  auto b3 = std::make_shared<Box>(Box{"Schachtel", {1.0f, 0.3f, 0.5f}, {-1.0f, -4.3f, 5.6f}, {-9.0f, 1.5f, -2.2f}});
+  b3 -> print(std::cout);
+  std::cout << std::endl;
+
+}
+TEST_CASE("intersectRaySphere", "[aufgabe5.6]") {
+  
+  glm::vec3 ray_origin{0.0f, 0.0f, 0.0f};
+  glm::vec3 ray_direction{0.0f, 0.0f, 1.0f};
+  glm::vec3 sphere_center{0.0f, 0.0f, 5.0f};
+  float sphere_radius{1.0f};
+
+  float distance{0.0f};
+  auto result = glm::intersectRaySphere(ray_origin, ray_direction,sphere_center,sphere_radius * sphere_radius,distance);
+
+  REQUIRE(distance == Approx(4.0f));
+
 }
 
 

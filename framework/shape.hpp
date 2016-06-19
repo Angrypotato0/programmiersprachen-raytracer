@@ -3,6 +3,7 @@
 #include "color.hpp"
 #include <glm/glm.hpp>
 #include <glm/vec3.hpp>
+#include <glm/gtx/intersect.hpp>
 #include <cmath>
 #include <string>
 #include <iostream>

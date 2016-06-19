@@ -27,7 +27,7 @@ Sphere::Sphere(std::string const& name, Color const& color, glm::vec3 const& cen
     return os;
   }
 
-  
+
  glm::vec3 const& Sphere::get_center() const{
  return center_;
  }
@@ -42,4 +42,8 @@ Sphere::Sphere(std::string const& name, Color const& color, glm::vec3 const& cen
 
  void Sphere::set_rad(float const& rad){
  	rad_ = rad;
+ }
+
+ bool Sphere::intersect(Ray const& r, float& d){
+ 	return glm::intersectRaySphere(r.origin_, r.direction_, center_, rad_*rad_, d);
  }
