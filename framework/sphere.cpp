@@ -1,4 +1,5 @@
 #include "sphere.hpp"
+#include "shape.hpp"
 #include <cmath>
 
 
@@ -20,7 +21,13 @@ Sphere::Sphere(std::string const& name, Color const& color, glm::vec3 const& cen
 		}
 		return res;
  }
+ std::ostream& Sphere::print(std::ostream& os) const {
+    Shape::print(os);
+    os << "Center:" << center_.x << ", "<< center_.y << ", " << center_.z << "\n" << "Radius: " << rad_ << std::endl;
+    return os;
+  }
 
+  
  glm::vec3 const& Sphere::get_center() const{
  return center_;
  }

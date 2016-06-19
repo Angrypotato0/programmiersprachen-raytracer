@@ -1,4 +1,5 @@
 #include "box.hpp"
+#include "shape.hpp"
 #include <cmath>
 
 Box::Box() : Shape{"box",{0.0f, 0.0f, 0.0f}}, min_ {0.0f,0.0f,0.0f}, max_ {0.0f,0.0f,0.0f} {}
@@ -25,6 +26,12 @@ Shape{name,color}, max_{max}, min_{min}{}
 		return res;
 
  	} 
+
+ 	std::ostream& Box::print(std::ostream& os) const {
+    Shape::print(os);
+    os << "Minimum: " << min_.x << ", " << min_.y << ", " << min_.z << "\n" << "Maximum:"  << max_.x<<", "<< max_.y << ", " << max_.z << std::endl;
+    return os;
+  }
 
  
  	glm::vec3 const& Box::get_max() const{

@@ -9,19 +9,21 @@
 class Shape
 {
 public:
-	Shape() : 
-	name_ {"shape"},
-	color_ {0.0f, 0.0f, 0.0f} {}
-	Shape(std::string const& name, Color const& color) :
-		name_{name},
-		color_{color} {}
+	Shape() ;
+	Shape(std::string const& name, Color const& color) ;
+	virtual ~Shape();
 	virtual float area() const = 0;
 	virtual float volume() const = 0;
-	std::string name() const;
-	Color const& color() const;
-private:
+	virtual std::ostream& print(std::ostream& os) const;
+	std::string get_name() const;
+	Color const& get_color() const;
+
+protected:
 std::string name_;
 Color color_;
 };
+
+
+std::ostream& operator << (std::ostream& os, Shape const& s);
 
 #endif

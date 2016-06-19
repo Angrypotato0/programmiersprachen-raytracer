@@ -16,6 +16,7 @@ public:
 	glm::vec3 const& get_min() const;
 	void set_max(glm::vec3 const& max);
 	void set_min(glm::vec3 const& min);
+	std::ostream& print(std::ostream& os) const;
 private:
 	glm::vec3 min_;
 	glm::vec3 max_;	

@@ -109,6 +109,20 @@ TEST_CASE("Box: set_min", "[aufgabe5.2]") {
   REQUIRE(1.0f == b2.get_min().z);
 
 }
+TEST_CASE("Shape: print","[aufgabe5.4]"){
+  Sphere s1 {{0.4f, 2.3f, 1.2f}, 4.3f};
+  std::cout << s1 << std::endl;
+
+  Sphere s2 {"Sphere 2", {0.9f, 0.35f, 0.2f}, {6.9f, 4.2f, -1.2f}, -6.9f};
+  std::cout << s2 << std::endl;
+
+  Box b1 {};
+  std::cout << b1 << std::endl;
+
+  //auto b2 = std::make_shared<Box>(Box{"Box 2", {1.0f, 0.3f, 0.5f}, {-1.0f, -4.3f, 5.6f}, {-9.0f, 1.5f, -2.2f}});
+  //b2 -> print(std::cout);
+
+}
 
 
 

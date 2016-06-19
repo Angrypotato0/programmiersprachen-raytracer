@@ -18,6 +18,7 @@ class Sphere : public Shape
  	float get_rad() const;
  	void set_rad (float const& rad);
  	void set_center (glm::vec3 const& center);
+ 	std::ostream& print(std::ostream& os) const override;
  private:
  	glm::vec3 center_;
  	double rad_;
