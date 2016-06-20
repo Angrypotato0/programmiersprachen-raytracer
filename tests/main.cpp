@@ -283,6 +283,22 @@ TEST_CASE("intersectRaySphere", "[aufgabe5.6]") {
   REQUIRE(distance == Approx(4.0f));
 
 }
+TEST_CASE("Destruktor", "[aufgabe5.8]"){
+  Color red(255, 0, 0); 
+  glm::vec3 position(0, 0, 0);
+
+  Sphere* s0 = new Sphere("sphere0", red, position, 1.2); 
+  Shape* s1 = new Sphere("sphere1", red, position, 1.2); // s ist polymorph
+
+  std::cout << std::endl;
+  s0 -> print(std::cout); 
+  std::cout << std::endl;
+  s1 -> print(std::cout);
+  std::cout << std::endl;
+
+  delete s0; 
+  delete s1;
+}
 
 
 

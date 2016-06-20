@@ -12,7 +12,7 @@ class Sphere : public Shape
  	Sphere();
  	Sphere(glm::vec3 const& center, float rad );
  	Sphere(std::string const& name, Color const& color, glm::vec3 const& center ,float rad);
-
+ 	~Sphere() override;
  	float area() const  ;
  	float volume() const  ;
  	glm::vec3 const& get_center() const;

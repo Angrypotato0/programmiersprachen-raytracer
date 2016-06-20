@@ -3,6 +3,7 @@
 
 Shape::Shape(): name_{"Shape"}, color_{0.0f,0.0f,0.0f}{}
 Shape::Shape(std::string const& name, Color const& color): name_{name},color_{color}{}
+
 Shape::~Shape(){
 	std::cout << "Shape Destruction: "<<name_<<std::endl;
 }
