@@ -3,14 +3,12 @@
 #include <cmath>
 
 
-Sphere::Sphere() :Shape{"Sphere",{0.0f, 0.0f, 0.0f}}, center_ {0.0f,0.0f,0.0f}, rad_ {0.0}{}
+Sphere::Sphere() :Shape{"Sphere",{}}, center_ {0.0f,0.0f,0.0f}, rad_ {0.0}{}
 Sphere::Sphere(glm::vec3 const& center, float rad) :
- Shape{"Sphere",{0.0f, 0.0f, 0.0f}}, center_{center}, rad_{rad}{}
-Sphere::Sphere(std::string const& name, Color const& color, glm::vec3 const& center, float rad):
- Shape{name,color}, center_{center}, rad_{rad}{}
-Sphere::~Sphere(){
-	std::cout <<"Sphere distruction: "<<name_<<std::endl;
-}
+ Shape{"Sphere",{}}, center_{center}, rad_{rad}{}
+Sphere::Sphere(std::string const& name, Material const& mat, glm::vec3 const& center, float rad):
+ Shape{name, mat}, center_{center}, rad_{rad}{}
+Sphere::~Sphere(){}
 
  float Sphere::area () const {
  	return 4.0f * M_PI * rad_ * rad_;

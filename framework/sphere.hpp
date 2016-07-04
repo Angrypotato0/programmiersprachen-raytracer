@@ -11,7 +11,7 @@ class Sphere : public Shape
  public:
  	Sphere();
  	Sphere(glm::vec3 const& center, float rad );
- 	Sphere(std::string const& name, Color const& color, glm::vec3 const& center ,float rad);
+ 	Sphere(std::string const& name, Material const& mat, glm::vec3 const& center ,float rad);
  	~Sphere() override;
  	float area() const  ;
  	float volume() const  ;
@@ -20,7 +20,7 @@ class Sphere : public Shape
  	void set_rad (float const& rad);
  	void set_center (glm::vec3 const& center);
  	std::ostream& print(std::ostream& os) const override;
- 	bool intersect(Ray const& r, float& d);
+ 	bool intersect(Ray const& r, float& d) const;
  private:
  	glm::vec3 center_;
  	double rad_;
