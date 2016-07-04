@@ -9,8 +9,17 @@ struct Ray
 	Ray(glm::vec3 const& origin, glm::vec3 const& direction):origin_{origin}, direction_{glm::normalize(direction)}{}
 
 
-	glm::vec3 origin_;
-	glm::vec3 direction_;
+	glm::vec3 origin() const{
+		return origin_;
+	}
+	glm::vec3 direction() const{
+		return direction_;
+	}
+
+
+  	glm::vec3 origin_;
+  	glm::vec3 direction_;
+
 };
 
 #endif

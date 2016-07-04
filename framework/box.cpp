@@ -2,23 +2,25 @@
 #include "shape.hpp"
 #include <cmath>
 
-Box::Box() : Shape{"box",{0.0f, 0.0f, 0.0f}}, min_ {0.0f,0.0f,0.0f}, max_ {0.0f,0.0f,0.0f} {}
+Box::Box() : Shape{"box",{}}, min_ {0.0f,0.0f,0.0f}, max_ {0.0f,0.0f,0.0f} {}
 Box::Box(glm::vec3 const& min, glm::vec3 const& max) :
-Shape{"box",{0.0f, 0.0f, 0.0f}}, max_{max}, min_{min}{
+Shape{"box",{}}, max_{max}, min_{min}{
 	min_.x = std::min(min.x, max.x);
     min_.y = std::min(min.y, max.y);
     min_.z = std::min(min.z, max.z);
     max_.x = std::max(min.x, max.x);
     max_.y = std::max(min.y, max.y);
     max_.z = std::max(min.z, max.z);}
-Box::Box(std::string const& name, Color const& color, glm::vec3 const& min, glm::vec3 const& max) :
-Shape{name,color}, max_{max}, min_{min}{
+Box::Box(std::string const& name, Material const& mat, glm::vec3 const& min, glm::vec3 const& max) :
+Shape{name,mat}, max_{max}, min_{min}{
 	min_.x = std::min(min.x, max.x);
     min_.y = std::min(min.y, max.y);
     min_.z = std::min(min.z, max.z);
     max_.x = std::max(min.x, max.x);
     max_.y = std::max(min.y, max.y);
     max_.z = std::max(min.z, max.z);}
+
+    Box::~Box(){}
 
 	float Box::area() const {
 		glm::vec3 dif = max_-min_;
@@ -59,7 +61,28 @@ Shape{name,color}, max_{max}, min_{min}{
  		min_=min;
  	};
 
- 	bool Box::intersect(Ray const& ray, float& t) const {
+ 	bool Box::in_box(glm::vec3 const& point) const {
+ 		bool result = false;
+ 		if (point.x >= min_.x && point.x <= max_.x) {
+      		if (point.y >= min_.y && point.y <= max_.y) {
+        		if (point.z >= min_.z && point.z <= max_.z) {
+          			result = true;
+        		}
+      		}
+    	}
+    	return result;
+ 	}
+
+
+
+ 	bool in_box(glm::vec3 const& min, glm::vec3 const& max, glm::vec3 const& point) {
+    Box b {min, max};
+    return b.in_box(point);
+   }
+
+
+
+ 	bool intersect(Ray const& ray, float& t) const {
  		bool result = true;
  		int z_1 = 0;
  		int z_2 = 0;
@@ -134,23 +157,7 @@ Shape{name,color}, max_{max}, min_{min}{
 
  	}
 
- 	bool Box::in_box(glm::vec3 const& point) const {
- 		bool result = false;
- 		if (point.x >= min_.x && point.x <= max_.x) {
-      		if (point.y >= min_.y && point.y <= max_.y) {
-        		if (point.z >= min_.z && point.z <= max_.z) {
-          			result = true;
-        		}
-      		}
-    	}
-    	return result;
- 	}
-
- 	bool in_box(glm::vec3 const& min, glm::vec3 const& max, glm::vec3 const& point) {
-    Box b {min, max};
-    return b.in_box(point);
-   }
-
+ 	
 
 
 

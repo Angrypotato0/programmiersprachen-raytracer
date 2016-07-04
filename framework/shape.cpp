@@ -2,11 +2,11 @@
 
 
 Shape::Shape(): name_{"Shape"}, mat_{}{}
-Shape::Shape(std::string const& name, Color const& color): name_{name},mat_{mat}{}
+Shape::Shape(std::string const& name, Material const& mat): name_{name},mat_{mat}{}
 
 Shape::~Shape(){}
 
-const& std::string Shape::get_name() const{
+std::string Shape::get_name() const{
 	return name_;
 }
 

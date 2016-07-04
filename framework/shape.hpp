@@ -18,7 +18,7 @@ public:
 	virtual float volume() const = 0;
 	virtual std::ostream& print(std::ostream& os) const;
 	virtual bool intersect(Ray const& ray, float& t) = 0;
-	const& std::string get_name() const;
+	std::string get_name() const;
 	Material const& get_matter() const;
 
 
