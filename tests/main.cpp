@@ -171,9 +171,17 @@ Sphere s1 {};
 
   REQUIRE("Sphere" == s1.get_name());
 
-  REQUIRE(0.0f == s1.get_color().r);
-  REQUIRE(0.0f == s1.get_color().g);
-  REQUIRE(0.0f == s1.get_color().b);
+  REQUIRE("Material" == s1.get_matter().name_);
+  REQUIRE(0.0f == s1.get_matter().ambient().r);
+  REQUIRE(0.0f == s1.get_matter().ambient().g);
+  REQUIRE(0.0f == s1.get_matter().ambient().b);
+  REQUIRE(0.0f == s1.get_matter().diffuse().r);
+  REQUIRE(0.0f == s1.get_matter().diffuse().g);
+  REQUIRE(0.0f == s1.get_matter().diffuse().b);
+  REQUIRE(0.0f == s1.get_matter().specular().r);
+  REQUIRE(0.0f == s1.get_matter().specular().g);
+  REQUIRE(0.0f == s1.get_matter().specular().b);
+  REQUIRE(0.0f == s1.get_matter().m_);
   
   Sphere s2 {{1.6f, 3.5f, 2.2f}, 46.3f};
   REQUIRE(1.6f == s2.get_center().x);
@@ -184,11 +192,20 @@ Sphere s1 {};
 
   REQUIRE("Sphere" == s2.get_name());
 
-  REQUIRE(0.0f == s2.get_color().r);
-  REQUIRE(0.0f == s2.get_color().g);
-  REQUIRE(0.0f == s2.get_color().b);
+  REQUIRE("Material" == s2.get_matter().name_);
+  REQUIRE(0.0f == s2.get_matter().ambient().r);
+  REQUIRE(0.0f == s2.get_matter().ambient().g);
+  REQUIRE(0.0f == s2.get_matter().ambient().b);
+  REQUIRE(0.0f == s2.get_matter().diffuse().r);
+  REQUIRE(0.0f == s2.get_matter().diffuse().g);
+  REQUIRE(0.0f == s2.get_matter().diffuse().b);
+  REQUIRE(0.0f == s2.get_matter().specular().r);
+  REQUIRE(0.0f == s2.get_matter().specular().g);
+  REQUIRE(0.0f == s2.get_matter().specular().b);
+  REQUIRE(0.0f == s2.get_matter().m_);
 
-  Sphere s3 {"Sphere 3", {4.9f, 3.2f, 1.2f}, {5.1f, 5.1f, 5.1f}, -6.9f};
+
+  Sphere s3 {"Sphere 3", {"Eisen",{4.9f, 3.2f, 1.2f}, {3.1f, 2.2f, 5.5f}, {6.6f, 6.6f, 6.6f}, 3.4f}, {5.1f, 5.1f, 5.1f}, -6.9f};
   REQUIRE(5.1f == s3.get_center().x);
   REQUIRE(5.1f == s3.get_center().y);
   REQUIRE(5.1f == s3.get_center().z);
@@ -197,9 +214,17 @@ Sphere s1 {};
 
   REQUIRE("Sphere 3" == s3.get_name());
 
-  REQUIRE(4.9f == s3.get_color().r);
-  REQUIRE(3.2f == s3.get_color().g);
-  REQUIRE(1.2f == s3.get_color().b);
+  REQUIRE("Eisen" == s3.get_matter().name_);
+  REQUIRE(4.9f == s3.get_matter().ambient().r);
+  REQUIRE(3.2f == s2.get_matter().ambient().g);
+  REQUIRE(1.2f == s2.get_matter().ambient().b);
+  REQUIRE(3.1f == s2.get_matter().diffuse().r);
+  REQUIRE(2.2f == s2.get_matter().diffuse().g);
+  REQUIRE(5.5f == s2.get_matter().diffuse().b);
+  REQUIRE(6.6f == s2.get_matter().specular().r);
+  REQUIRE(6.6f == s2.get_matter().specular().g);
+  REQUIRE(6.6f == s2.get_matter().specular().b);
+  REQUIRE(3.4f == s2.get_matter().m_);
 
 
 }
@@ -215,9 +240,17 @@ TEST_CASE("Box: construktor","[aufgabe5.3]"){
 
   REQUIRE("box" == b1.get_name());
 
-  REQUIRE(0.0f == b1.get_color().r);
-  REQUIRE(0.0f == b1.get_color().g);
-  REQUIRE(0.0f == b1.get_color().b);
+  REQUIRE("Material" == b1.get_matter().name_);
+  REQUIRE(0.0f == b1.get_matter().ambient().r);
+  REQUIRE(0.0f == b1.get_matter().ambient().g);
+  REQUIRE(0.0f == b1.get_matter().ambient().b);
+  REQUIRE(0.0f == b1.get_matter().diffuse().r);
+  REQUIRE(0.0f == b1.get_matter().diffuse().g);
+  REQUIRE(0.0f == b1.get_matter().diffuse().b);
+  REQUIRE(0.0f == b1.get_matter().specular().r);
+  REQUIRE(0.0f == b1.get_matter().specular().g);
+  REQUIRE(0.0f == b1.get_matter().specular().b);
+  REQUIRE(0.0f == b1.get_matter().m_);
 
 
   Box b2 {{1.0f, 2.3f, 4.1f}, {0.0f, 2.5f, 1.2f}};
@@ -231,32 +264,48 @@ TEST_CASE("Box: construktor","[aufgabe5.3]"){
 
   REQUIRE("box" == b2.get_name());
 
-  REQUIRE(0.0f == b2.get_color().r);
-  REQUIRE(0.0f == b2.get_color().g);
-  REQUIRE(0.0f == b2.get_color().b);
+  REQUIRE("Material" == b2.get_matter().name_);
+  REQUIRE(0.0f == b2.get_matter().ambient().r);
+  REQUIRE(0.0f == b2.get_matter().ambient().g);
+  REQUIRE(0.0f == b2.get_matter().ambient().b);
+  REQUIRE(0.0f == b2.get_matter().diffuse().r);
+  REQUIRE(0.0f == b2.get_matter().diffuse().g);
+  REQUIRE(0.0f == b2.get_matter().diffuse().b);
+  REQUIRE(0.0f == b2.get_matter().specular().r);
+  REQUIRE(0.0f == b2.get_matter().specular().g);
+  REQUIRE(0.0f == b2.get_matter().specular().b);
+  REQUIRE(0.0f == b2.get_matter().m_);
 
 
-  Box b3 {"box 3", {1.0f, 0.3f, 0.5f}, {-1.0f, -4.3f, 5.6f}, {-9.0f, 1.5f, -2.2f}};
-  REQUIRE(-1.0f == b3.get_min().x);
-  REQUIRE(-4.3f == b3.get_min().y);
-  REQUIRE(5.6f == b3.get_min().z);
+  Box b3 {"box 3",{"Glass",{1.0f, 2.3f, 4.1f},{0.0f, 2.5f, 1.2f},{3.1f, 5.0f, 0.1f}, 2.3f},{1.0f, 2.3f, 4.1f}, {0.0f, 2.5f, 1.2f}};
+  REQUIRE(1.0f == b3.get_min().x);
+  REQUIRE(2.3f == b3.get_min().y);
+  REQUIRE(4.1f == b3.get_min().z);
 
-  REQUIRE(-9.0f == b3.get_max().x);
-  REQUIRE(1.5f == b3.get_max().y);
-  REQUIRE(-2.2f == b3.get_max().z);
+  REQUIRE(0.0f == b3.get_max().x);
+  REQUIRE(2.5f == b3.get_max().y);
+  REQUIRE(1.2f == b3.get_max().z);
 
   REQUIRE("box 3" == b3.get_name());
 
-  REQUIRE(1.0f == b3.get_color().r);
-  REQUIRE(0.3f == b3.get_color().g);
-  REQUIRE(0.5f == b3.get_color().b);
+  REQUIRE("Glass" == b3.get_matter().name_);
+  REQUIRE(1.0f == b3.get_matter().ambient().r);
+  REQUIRE(2.3f == b3.get_matter().ambient().g);
+  REQUIRE(4.1f == b3.get_matter().ambient().b);
+  REQUIRE(0.0f == b3.get_matter().diffuse().r);
+  REQUIRE(2.5f == b3.get_matter().diffuse().g);
+  REQUIRE(1.2f == b3.get_matter().diffuse().b);
+  REQUIRE(3.1f == b3.get_matter().specular().r);
+  REQUIRE(5.0f == b3.get_matter().specular().g);
+  REQUIRE(0.1f == b3.get_matter().specular().b);
+  REQUIRE(2.3f == b3.get_matter().m_);
 }
 
 TEST_CASE("Box + Sphere: print","[aufgabe5.5]"){
   Sphere s1 {{0.4f, 2.3f, 1.2f}, 4.3f};
   std::cout << s1 << std::endl;
 
-  Sphere s2 {"Sphere 2", {0.9f, 0.35f, 0.2f}, {6.9f, 4.2f, -1.2f}, -6.9f};
+  Sphere s2 {"Sphere 2", {"Eisen", {1.0f, 2.2f, 4.2f}, {3.3f, 4.4f, 5.5f}, {3.1f, 5.0f, 0.1f}, 3.2f}, {6.9f, 4.2f, -1.2f}, -6.9f};
   std::cout << s2 << std::endl;
 
   Box b1 {{1.2f, 4.3f, 66.6f}, {3.2f, 5.5f, 8.8f}};
@@ -265,7 +314,7 @@ TEST_CASE("Box + Sphere: print","[aufgabe5.5]"){
   Box b2 {"box 2", {1.0f, 0.3f, 0.5f}, {-1.0f, -4.3f, 5.6f}, {-9.0f, 1.5f, -2.2f}};
   std::cout << b2 <<  std::endl;
 
-  auto b3 = std::make_shared<Box>(Box{"Schachtel", {1.0f, 0.3f, 0.5f}, {-1.0f, -4.3f, 5.6f}, {-9.0f, 1.5f, -2.2f}});
+  auto b3 = std::make_shared<Box>(Box{"Schachtel", {}, {-1.0f, -4.3f, 5.6f}, {-9.0f, 1.5f, -2.2f}});
   b3 -> print(std::cout);
   std::cout << std::endl;
 
@@ -284,11 +333,11 @@ TEST_CASE("intersectRaySphere", "[aufgabe5.6]") {
 
 }
 TEST_CASE("Destruktor", "[aufgabe5.8]"){
-  Color red(255, 0, 0); 
+  Material mat("Eisen", {1.0f, 2.2f, 4.2f}, {3.3f, 4.4f, 5.5f}, {3.1f, 5.0f, 0.1f}, 3.2f);
   glm::vec3 position(0, 0, 0);
 
-  Sphere* s0 = new Sphere("sphere0", red, position, 1.2); 
-  Shape* s1 = new Sphere("sphere1", red, position, 1.2); // s ist polymorph
+  Sphere* s0 = new Sphere("sphere0", mat, position, 1.2); 
+  Shape* s1 = new Sphere("sphere1", mat, position, 1.2); 
 
   std::cout << std::endl;
   s0 -> print(std::cout); 
